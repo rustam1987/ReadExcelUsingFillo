@@ -62,4 +62,15 @@ public class ReadDataFromExcel {
 		
 	}
 	
+	public String getCellData(String ExcelName,String query,String columnName) throws FilloException{
+		Fillo fillo=new Fillo();
+		Connection con=fillo.getConnection(ExcelName);
+		Recordset rs=con.executeQuery(query);
+		rs.next();
+		return rs.getField(columnName);
+		
+	}
+	
+	
+	
 }
